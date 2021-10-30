@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int k;
+    char ch;
+    scanf("%d\n",&k);
+
+    while ((ch=getchar()) != '\n'){
+        if ('a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z') {
+            if ('a' <= ch && ch <= 'z') {
+                if (k % 26 == 0) {
+                    printf("%c", ch+k);
+                } else {
+                    printf("%c", ch+(k%26));
+                }
+                if (ch > 'z') { //char is negative
+                    printf("%c", ch-26);
+                } else if (ch < 'a') { //char is negative
+                    printf("%c", ch+26);
+                }
+            }
+            else if ('A' <= ch && ch <= 'Z') {
+                    if (k % 26 == 0) {
+                        printf("%c", ch+k);
+                    } else {
+                        printf("%c", ch+(k%26));
+                    }
+                    if (ch > 'Z') { //char is negative
+                        printf("%c", ch-26);
+                    } else if (ch < 'A') { //char is negative
+                        printf("%c", ch+26);
+                    }
+                }
+        }
+        else{putchar(ch);}
+    }
+    return 0;
+}
